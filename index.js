@@ -38,4 +38,10 @@ const questions= [
 
 inquirer.prompt(questions).then((answers) => {
     const {logo, shape, textColor, color} = answers;
+    const newShape = new Shape();
+    const svgElement = "";
+
+    newShape.setColor(color);
+
+    
 };
