@@ -65,7 +65,7 @@ inquirer.prompt(questions).then((answers) => {
     const presentSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="300" height="200">
     ${svgImg}
    <text x="150" y="125" font-size="60" text-anchor="middle" fill="${textColor}">${logo}</text>
-    </svg>`;
+    </svg>`; 
     
     fs.writeFileSync('logo.svg', presentSvg);
 
