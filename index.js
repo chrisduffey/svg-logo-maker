@@ -2,7 +2,6 @@
 const fs = require ('fs');
 const inquirer = require ('inquirer');
 const {Shape,Circle, Square, Triangle} = require ("./lib/shapes");
-const { type } = require('os');
 const validate = (value) => {if (value){return true}else {return 'Please enter a value.'}}
 
 const questions= [
@@ -39,9 +38,36 @@ const questions= [
 inquirer.prompt(questions).then((answers) => {
     const {logo, shape, textColor, color} = answers;
     const newShape = new Shape();
-    const svgElement = "";
+    let svgImg = "";
 
     newShape.setColor(color);
 
+    switch (shape) {
+        case 'Circle':
+            const circle = new Circle;
+            circle.setColor(color);
+            svgImg = circle.render();
+            break;
+        case 'Square':
+            const square = new Square;
+            square.setColor(color);
+            svgImg = square.render();
+            break;
+        case 'Triangle':
+            const triangle = new Triangle;
+            triangle.setColor(color);
+            svgImg = triangle.render();
+            break;
+        
+    }
+
+   const presentSvg = '<svg xmlns="http://www.w3.org/2000/svg width="300" height="200" ">' 
+    ${svgImg}
+   <text x="150" y="125" font-size="60" text-anchor="middle" fill="${textColor}">${text}</text>
+    </svg>;
     
-};
+    fs.writeFileSync('logo.svg', svgImg);
+
+    console.log('logo.svg Created!!')
+    
+});
