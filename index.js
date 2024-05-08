@@ -2,11 +2,7 @@
 const fs = require ('fs');
 const inquirer = require('inquirer');
 const {Shape,Circle, Square, Triangle} = require ("./lib/shapes");
-// const { default: inquirer } = require('inquirer');
 const validate = (value) => {if (value){return true}else {return 'Please enter a value.'}};
-
-
-
 
 
 const questions= [
@@ -66,7 +62,7 @@ inquirer.prompt(questions).then((answers) => {
         
     }
 
-   const presentSvg = `<svg xmlns="http://www.w3.org/2000/svg"> width="300" height="200">
+    const presentSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="300" height="200">
     ${svgImg}
    <text x="150" y="125" font-size="60" text-anchor="middle" fill="${textColor}">${logo}</text>
     </svg>`;
