@@ -25,12 +25,12 @@ const questions= [
     },
     {
         type: "input",
-        message: "What color would you like the text to be?",
+        message: "What color would you like the text to be? (can use color name or hexidecimal)",
         name: "textColor"
     },
     {
         type: "input",
-        message: "What color would you like?",
+        message: "What color would you like? (can use color name or hexidecimal)",
         name: "color",
         validate: (value)=>validate(value),
     }
@@ -38,10 +38,10 @@ const questions= [
 
 inquirer.prompt(questions).then((answers) => {
     const {logo, shape, textColor, color} = answers;
-    const newShape = new Shape();
+    // const newShape = new Shape();
     let svgImg = "";
 
-    newShape.setColor(color);
+    // newShape.setColor(color);
 
     switch (shape) {
         case 'Circle':
@@ -67,8 +67,8 @@ inquirer.prompt(questions).then((answers) => {
    <text x="150" y="125" font-size="60" text-anchor="middle" fill="${textColor}">${logo}</text>
     </svg>`; 
     
-    fs.writeFileSync('logo.svg', presentSvg);
+    fs.writeFileSync('dist/logo.svg', presentSvg);
 
-    console.log('logo.svg Created!!')
+    console.log(' Generated logo.svg !!')
 
 });
